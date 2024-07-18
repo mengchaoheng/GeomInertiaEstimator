@@ -54,7 +54,7 @@ To inquire about commercial licenses, please contact [Valentin Wüest](mailto:va
 Clone the _GeomInertiaEstimator_ repo into your catkin workspace:
 ```
 cd ~/catkin_ws/src/
-git clone git@github.com:arplaboratory/GeomInertiaEstimator.git
+git clone https://github.com/mengchaoheng/GeomInertiaEstimator.git
 ```
 
 Build the _GeomInertiaEstimator_ package:
@@ -101,7 +101,7 @@ rosbag play config/lissajous_trajectory.bag --pause
 You can now plot the estimates using plotjuggler by executing this command in a fourth window:
 ```
 roscd geom_inertia_estimator/
-rosrun plotjuggler plotjuggler -l config/PlotJuggler_Layout1.xml
+rosrun plotjuggler plotjuggler -l config/PlotJuggler_Layout1.xml # change by mengchaoheng
 ```
 When prompted, hit "_Yes (Both Layout and Streaming)_", "_OK_", and "_Create empty placeholders_". You can then unpause the bag play by clicking on the rosbag terminal window and hitting _SPACEBAR_. select the `result.bag` in `/config`.
 
@@ -109,3 +109,5 @@ Now, enjoy following the plots being drawn!
 
 ## Remark
 If you intend to change the mathematical model of the estimator, please use the Unscented Kalman Filter (UKF) instead of the Extended Kalman Filter (EKF), as we have not yet provided the Matlab functions used to calculate the linearized state transition model.
+
+The Z Axis of frame is set to Up Axis.(ENU instead of NED)!!!
