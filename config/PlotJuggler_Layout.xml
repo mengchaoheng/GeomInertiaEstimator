@@ -100,20 +100,16 @@
  </tabbed_widget>
  <use_relative_time_offset enabled="1"/>
  <Plugins>
-  <DataLoad_CSV>
-   <default time_axis=""/>
-  </DataLoad_CSV>
-  <DataLoad_ROS_bags>
-   <selected_topics list=""/>
-  </DataLoad_ROS_bags>
-  <DataLoad_ULog>
-   <no_params/>
-  </DataLoad_ULog>
-  <ROS_Topic_Streamer>
+  <plugin ID="DataLoad CSV">
+   <parameters time_axis="" delimiter="0"/>
+  </plugin>
+  <plugin ID="DataLoad ROS bags">
+   <selected_topics value=""/>
+  </plugin>
+  <plugin ID="DataLoad ULog"/>
+  <plugin ID="ROS_Topic_Streamer">
    <selected_topics list="/quadrotor/geom_inertia_estimator/param_estimates"/>
-  </ROS_Topic_Streamer>
-  <RosoutPublisherROS/>
-  <TopicPublisherROS/>
+  </plugin>
  </Plugins>
  <previouslyLoadedStreamer name="ROS_Topic_Streamer"/>
 </root>

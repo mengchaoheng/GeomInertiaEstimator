@@ -518,7 +518,7 @@ Eigen::Matrix<flt,3,1> InertiaEstimator::measurementModelAcceleration(State &X, 
   // measurement model acceleration
   vec3 Omega_dot = X.I.inverse()*(M-X.Omega.cross(X.I*X.Omega));
   vec3 a_meas = 1.0/X.m*F
-                + Omega_dot.cross(r_MI)
+                - Omega_dot.cross(r_MI)
                 + X.Omega.cross(X.Omega.cross(r_MI))
                 + X.b_a;
   return a_meas;

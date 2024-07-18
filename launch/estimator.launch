@@ -9,9 +9,14 @@
             output="screen">
             <rosparam file="$(find geom_inertia_estimator)/config/quad_params.yaml"/>
             <param name="useEKF" value="$(arg use_EKF)"/>
+            <!-- <remap from="~pose" to="/mavros/local_position/pose_cov"/>
+            <remap from="~imu"  to="/mavros/imu/data"/>
+            <remap from="~rpm"  to="/mavros/motorpwm"/> -->
             <remap from="~pose" to="pose"/>
             <remap from="~imu"  to="imu"/>
             <remap from="~rpm"  to="rpm"/>
         </node>
+        <node pkg="rosbag" type="record" name="bag_record" args="-a -O $(find geom_inertia_estimator)/config/result.bag"/> 
+
     </group>
 </launch>

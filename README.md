@@ -78,6 +78,8 @@ roslaunch geom_inertia_estimator estimator.launch
 Firstly, install _PlotJuggler_ if you have not already:
 ```
 sudo apt-get install ros-$ROS_DISTRO-plotjuggler
+sudo apt install ros-${ROS_DISTRO}-plotjuggler-ros
+
 ```
 
 In a terminal window, start the roscore:
@@ -99,9 +101,11 @@ rosbag play config/lissajous_trajectory.bag --pause
 You can now plot the estimates using plotjuggler by executing this command in a fourth window:
 ```
 roscd geom_inertia_estimator/
-rosrun plotjuggler PlotJuggler -l config/PlotJuggler_Layout.xml
+rosrun plotjuggler plotjuggler -l config/PlotJuggler_Layout1.xml
 ```
-When prompted, hit "_Yes (Both Layout and Streaming)_", "_OK_", and "_Create empty placeholders_". You can then unpause the bag play by clicking on the rosbag terminal window and hitting _SPACEBAR_. Now, enjoy following the plots being drawn!
+When prompted, hit "_Yes (Both Layout and Streaming)_", "_OK_", and "_Create empty placeholders_". You can then unpause the bag play by clicking on the rosbag terminal window and hitting _SPACEBAR_. select the `result.bag` in `/config`.
+
+Now, enjoy following the plots being drawn!
 
 ## Remark
 If you intend to change the mathematical model of the estimator, please use the Unscented Kalman Filter (UKF) instead of the Extended Kalman Filter (EKF), as we have not yet provided the Matlab functions used to calculate the linearized state transition model.
