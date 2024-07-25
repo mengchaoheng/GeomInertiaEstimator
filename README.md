@@ -162,6 +162,21 @@ Then MAVROS shoulde be installed from source. If you can takeoff the quadrotor o
 
 1. code of PX4-Autopilot
 
+
+clone the repositories to ~/PX4-Autopilot:
+```
+git clone https://github.com/PX4/PX4-Autopilot.git
+cd ~/PX4-Autopilot
+git checkout v1.14.0-deta2
+git submodule update --init --recursive
+```
+and build it by 
+```
+make px4_sitl
+```
+
+The detail of what is change in the code is:
+
 1.1 change the rate of mavlink stream in `src/modules/mavlink/mavlink_main.cpp` under `case MAVLINK_MODE_ONBOARD:`:
 ```cpp
 configure_stream_local("HIGHRES_IMU", unlimited_rate); //need for rostopic /quadrotor/imu
@@ -198,11 +213,31 @@ msg.time_usec = act.timestamp / 1000;
 </link>
 
 ```
-(option): set `rotorDragCoefficient` and `rollingMomentCoefficient` to 0 for debug the algorithm.
+ (option): set `rotorDragCoefficient` and `rollingMomentCoefficient` to 0 for debug the algorithm.
+
+1.5 Rebuild the code.
 
 2. mavros
 
-Follow the step in [build from soure](https://docs.px4.io/main/en/ros/mavros_installation.html) and then:
+NOTE: we clone mavlink and mavros pkg in to path `~/mavros_ws/src`.
+
+Follow the step in [build from soure](https://docs.px4.io/main/en/ros/mavros_installation.html).
+
+
+
+After build all the mavros code, delet the origin version of mavros and clone my mavros repositories to ~/mavros_ws/src to recover the origin one by:
+```
+cd ~/mavros_ws/src
+git clone https://github.com/mengchaoheng/GeomInertiaEstimator.git
+```
+and build it by 
+```
+cd ~/mavros_ws
+catkin build
+```
+
+
+The detail of what is change in the code is:
 
 2.1 remap the topic to /quadrotor/xxx in `node.launch` file:
 ```xml
@@ -450,15 +485,18 @@ add_message_files(
   ...
 )
 ```
+2.4 Rebuild the code.
 
 3. GeomInertiaEstimator
 
-clone this repositories
+clone this repositories to another path `~/catkin_ws/src` which build by `catkin_make`.
 ```
+cd  ~/catkin_ws/src
 git clone https://github.com/mengchaoheng/GeomInertiaEstimator.git
 ```
 and build it by 
 ```
+cd  ~/catkin_ws
 catkin_make
 ```
 
@@ -467,7 +505,20 @@ The detail of what is change in the code is:
 
 3.1 Add `onfig/PlotJuggler_Layout_xxx.xml` for plot data by PlotJuggler.
 
-3.2 Add `config/px4_iris_params.yaml` for px4.
+3.2 Add `config/px4_iris_params.yaml` for px4, have to reorder the rotor to adapt to px4, that is:
+```
+rotor1 <--> <link name='rotor_2'>
+rotor2 <--> <link name='rotor_1'>
+rotor3 <--> <link name='rotor_3'>
+rotor4 <--> <link name='rotor_0'>
+
+motorConstant = kf,   Unit: [N/rad^2]
+momentConstant*kf= km,  negative if counter-clockwise ,  positive if clockwise
+momentConstant = consts_.c 
+R_BP=I
+R_BI=I
+```
+Now the unit of rotor vel is rad/s. but it work. 
 
 3.3 Add `launch/px4_estimator.launch` for launch.
 
@@ -567,4 +618,26 @@ void InertiaEstimator::measUpdateImuEKF(StateWithCov &state, Input &input, MeasI
   ...
 }
 ```
+3.7 Rebuild the code.
 
+## PX4 example usage
+1. Run px4 sitl:
+```
+make px4_sitl gazebo
+```
+2. Run mavros
+```
+roslaunch mavros px4.launch fcu_url:="udp://:14540@127.0.0.1:14557"
+
+```
+3. Run estimator node
+```
+roslaunch geom_inertia_estimator px4_estimator.launch  
+
+```
+4. Run plotjuggler node
+```
+rosrun plotjuggler plotjuggler -l config/PlotJuggler_Layout_for_px4.xml 
+
+```
+5. Flight the UAV by munual control or upload a mission to follow, you can see the states of estimator is converge.

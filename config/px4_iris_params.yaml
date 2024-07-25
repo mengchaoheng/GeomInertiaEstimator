@@ -70,7 +70,7 @@ multirotor:
         R: [ 1.0, 0.0, 0.0, 0.0, 1.0, 0.0, 0.0, 0.0, 1.0]
         t: [ -0.13, -0.22, 0.023]
     rotor4:
-        kf: 5.84e-06 # motorConstant/(30/pi)^2=kf,//  but usrad/s here since noise is important
+        kf: 5.84e-06 # motorConstant/(30/pi)^2=kf,//  but use rad/s here since noise is important. so motorConstant =kf
         km: -3.5040e-07 # # momentConstant*kf=km - negative if counter-clockwise0,  positive if clockwise
         R: [ 1.0, 0.0, 0.0, 0.0, 1.0, 0.0, 0.0, 0.0, 1.0] # rotor attitude - row major matrix
         t: [ 0.13, -0.22, 0.023] # rotor position
