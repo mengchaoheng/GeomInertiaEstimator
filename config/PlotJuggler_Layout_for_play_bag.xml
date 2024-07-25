@@ -1,49 +1,49 @@
 <?xml version='1.0' encoding='UTF-8'?>
 <root>
  <tabbed_widget name="Main Window" parent="main_window">
-  <Tab tab_name="traj" containers="1">
+  <Tab containers="1" tab_name="traj">
    <Container>
     <DockSplitter orientation="-" sizes="1" count="1">
      <DockArea name="...">
-      <plot mode="XYPlot" flip_x="false" flip_y="false" style="Lines">
-       <range bottom="-0.298157" top="0.442029" left="-0.097444" right="0.668537"/>
+      <plot flip_x="false" style="Lines" flip_y="false" mode="XYPlot">
+       <range left="-0.097444" top="0.442029" bottom="-0.298157" right="0.668537"/>
        <limitY/>
-       <curve name="/quadrotor/pose/pose/pose/position/[x;y]" curve_x="/quadrotor/pose/pose/pose/position/x" curve_y="/quadrotor/pose/pose/pose/position/y" color="#ff7f0e"/>
+       <curve name="/quadrotor/pose/pose/pose/position/[x;y]" color="#ff7f0e" curve_x="/quadrotor/pose/pose/pose/position/x" curve_y="/quadrotor/pose/pose/pose/position/y"/>
       </plot>
      </DockArea>
     </DockSplitter>
    </Container>
   </Tab>
-  <Tab tab_name="RPY" containers="1">
+  <Tab containers="1" tab_name="RPY">
    <Container>
     <DockSplitter orientation="-" sizes="0.333037;0.333927;0.333037" count="3">
      <DockArea name="...">
-      <plot mode="TimeSeries" flip_x="false" flip_y="false" style="Lines">
-       <range bottom="-1.619881" top="1.802327" left="183.912379" right="208.906689"/>
+      <plot flip_x="false" style="Lines" flip_y="false" mode="TimeSeries">
+       <range left="1721901498.603945" top="0.905739" bottom="-0.930094" right="1721901523.597807"/>
        <limitY/>
        <curve name="ROLL" color="#1ac938"/>
        <curve name="e_roll" color="#9467bd"/>
       </plot>
      </DockArea>
      <DockArea name="...">
-      <plot mode="TimeSeries" flip_x="false" flip_y="false" style="Lines">
-       <range bottom="-1.243417" top="1.199149" left="183.912379" right="208.906689"/>
+      <plot flip_x="false" style="Lines" flip_y="false" mode="TimeSeries">
+       <range left="1721901498.603945" top="0.897975" bottom="-0.826652" right="1721901523.597807"/>
        <limitY/>
        <curve name="PITCH" color="#ff7f0e">
         <transform name="Scale/Offset" alias="PITCH[Scale/Offset]">
-         <options value_scale="-1" time_offset="0.0" value_offset="0.0"/>
+         <options time_offset="0.0" value_offset="0.0" value_scale="-1"/>
         </transform>
        </curve>
        <curve name="e_pitch" color="#17becf"/>
       </plot>
      </DockArea>
      <DockArea name="...">
-      <plot mode="TimeSeries" flip_x="false" flip_y="false" style="Lines">
-       <range bottom="-1.136214" top="2.159631" left="183.912379" right="208.906689"/>
+      <plot flip_x="false" style="Lines" flip_y="false" mode="TimeSeries">
+       <range left="1721901498.603945" top="1.946144" bottom="-0.601788" right="1721901523.597807"/>
        <limitY/>
        <curve name="YAW" color="#f14cc1">
         <transform name="Scale/Offset" alias="YAW[Scale/Offset]">
-         <options value_scale="-1" time_offset="0.0" value_offset="0.0"/>
+         <options time_offset="0.0" value_offset="0.0" value_scale="-1"/>
         </transform>
        </curve>
        <curve name="e_yaw" color="#bcbd22"/>
@@ -52,44 +52,44 @@
     </DockSplitter>
    </Container>
   </Tab>
-  <Tab tab_name="xyz" containers="1">
+  <Tab containers="1" tab_name="xyz">
    <Container>
     <DockSplitter orientation="-" sizes="0.250446;0.249554;0.250446;0.249554" count="4">
      <DockArea name="...">
-      <plot mode="TimeSeries" flip_x="false" flip_y="false" style="Lines">
-       <range bottom="-0.538299" top="1.180555" left="183.764610" right="208.906689"/>
+      <plot flip_x="false" style="Lines" flip_y="false" mode="TimeSeries">
+       <range left="1721901498.519466" top="0.668537" bottom="-0.097444" right="1721901523.597807"/>
        <limitY/>
        <curve name="/quadrotor/pose/pose/pose/position/x" color="#f14cc1"/>
        <curve name="/quadrotor/geom_inertia_estimator/param_estimates/r/x" color="#1f77b4"/>
       </plot>
      </DockArea>
      <DockArea name="...">
-      <plot mode="TimeSeries" flip_x="false" flip_y="false" style="Lines">
-       <range bottom="-1.055823" top="1.117124" left="183.764610" right="208.906689"/>
+      <plot flip_x="false" style="Lines" flip_y="false" mode="TimeSeries">
+       <range left="1721901498.519466" top="0.298157" bottom="-0.442029" right="1721901523.597807"/>
        <limitY/>
        <curve name="/quadrotor/pose/pose/pose/position/y" color="#9467bd">
         <transform name="Scale/Offset" alias="/quadrotor/pose/pose/pose/position/y[Scale/Offset]">
-         <options value_scale="-1" time_offset="0.0" value_offset="0.0"/>
+         <options time_offset="0.0" value_offset="0.0" value_scale="-1"/>
         </transform>
        </curve>
        <curve name="/quadrotor/geom_inertia_estimator/param_estimates/r/y" color="#d62728"/>
       </plot>
      </DockArea>
      <DockArea name="...">
-      <plot mode="TimeSeries" flip_x="false" flip_y="false" style="Lines">
-       <range bottom="0.850616" top="1.553502" left="183.764610" right="208.906689"/>
+      <plot flip_x="false" style="Lines" flip_y="false" mode="TimeSeries">
+       <range left="1721901498.519466" top="1.444046" bottom="1.184021" right="1721901523.597807"/>
        <limitY/>
        <curve name="/quadrotor/pose/pose/pose/position/z" color="#17becf">
         <transform name="Scale/Offset" alias="/quadrotor/pose/pose/pose/position/z[Scale/Offset]">
-         <options value_scale="-1" time_offset="0.0" value_offset="0.0"/>
+         <options time_offset="0.0" value_offset="0.0" value_scale="-1"/>
         </transform>
        </curve>
        <curve name="/quadrotor/geom_inertia_estimator/param_estimates/r/z" color="#1ac938"/>
       </plot>
      </DockArea>
      <DockArea name="...">
-      <plot mode="TimeSeries" flip_x="false" flip_y="false" style="Lines">
-       <range bottom="4939.400000" top="16892.600000" left="183.764610" right="208.906689"/>
+      <plot flip_x="false" style="Lines" flip_y="false" mode="TimeSeries">
+       <range left="1721901498.519466" top="16892.600000" bottom="4939.400000" right="1721901523.597807"/>
        <limitY/>
        <curve name="/quadrotor/rpm/rpm[0]" color="#d62728"/>
        <curve name="/quadrotor/rpm/rpm[1]" color="#1ac938"/>
@@ -100,44 +100,44 @@
     </DockSplitter>
    </Container>
   </Tab>
-  <Tab tab_name="pqr" containers="1">
+  <Tab containers="1" tab_name="pqr">
    <Container>
     <DockSplitter orientation="-" sizes="0.250446;0.249554;0.250446;0.249554" count="4">
      <DockArea name="...">
-      <plot mode="TimeSeries" flip_x="false" flip_y="false" style="Lines">
-       <range bottom="-7.448980" top="8.891416" left="183.764610" right="208.906689"/>
+      <plot flip_x="false" style="Lines" flip_y="false" mode="TimeSeries">
+       <range left="1721901498.519466" top="7.803941" bottom="-6.371160" right="1721901523.597807"/>
        <limitY/>
        <curve name="/quadrotor/imu/angular_velocity/x" color="#bcbd22"/>
        <curve name="/quadrotor/geom_inertia_estimator/param_estimates/Omega/x" color="#9467bd"/>
       </plot>
      </DockArea>
      <DockArea name="...">
-      <plot mode="TimeSeries" flip_x="false" flip_y="false" style="Lines">
-       <range bottom="-8.933897" top="7.594493" left="183.764610" right="208.906689"/>
+      <plot flip_x="false" style="Lines" flip_y="false" mode="TimeSeries">
+       <range left="1721901498.519466" top="7.388220" bottom="-8.162604" right="1721901523.597807"/>
        <limitY/>
        <curve name="/quadrotor/imu/angular_velocity/y" color="#1f77b4">
         <transform name="Scale/Offset" alias="/quadrotor/imu/angular_velocity/y[Scale/Offset]">
-         <options value_scale="-1" time_offset="0.0" value_offset="0.0"/>
+         <options time_offset="0.0" value_offset="0.0" value_scale="-1"/>
         </transform>
        </curve>
        <curve name="/quadrotor/geom_inertia_estimator/param_estimates/Omega/y" color="#17becf"/>
       </plot>
      </DockArea>
      <DockArea name="...">
-      <plot mode="TimeSeries" flip_x="false" flip_y="false" style="Lines">
-       <range bottom="-4.398317" top="4.677416" left="183.764610" right="208.906689"/>
+      <plot flip_x="false" style="Lines" flip_y="false" mode="TimeSeries">
+       <range left="1721901498.519466" top="4.698576" bottom="-4.432211" right="1721901523.597807"/>
        <limitY/>
        <curve name="/quadrotor/imu/angular_velocity/z" color="#d62728">
         <transform name="Scale/Offset" alias="/quadrotor/imu/angular_velocity/z[Scale/Offset]">
-         <options value_scale="-1" time_offset="0.0" value_offset="0.0"/>
+         <options time_offset="0.0" value_offset="0.0" value_scale="-1"/>
         </transform>
        </curve>
        <curve name="/quadrotor/geom_inertia_estimator/param_estimates/Omega/z" color="#bcbd22"/>
       </plot>
      </DockArea>
      <DockArea name="...">
-      <plot mode="TimeSeries" flip_x="false" flip_y="false" style="Lines">
-       <range bottom="4939.400000" top="16892.600000" left="183.764610" right="208.906689"/>
+      <plot flip_x="false" style="Lines" flip_y="false" mode="TimeSeries">
+       <range left="1721901498.519466" top="16892.600000" bottom="4939.400000" right="1721901523.597807"/>
        <limitY/>
        <curve name="/quadrotor/rpm/rpm[0]" color="#17becf"/>
        <curve name="/quadrotor/rpm/rpm[1]" color="#bcbd22"/>
@@ -148,34 +148,34 @@
     </DockSplitter>
    </Container>
   </Tab>
-  <Tab tab_name="acc" containers="1">
+  <Tab containers="1" tab_name="acc">
    <Container>
     <DockSplitter orientation="-" sizes="0.333037;0.333927;0.333037" count="3">
      <DockArea name="...">
-      <plot mode="TimeSeries" flip_x="false" flip_y="false" style="Lines">
-       <range bottom="-7.256142" top="7.394958" left="183.805092" right="208.906619"/>
+      <plot flip_x="false" style="Lines" flip_y="false" mode="TimeSeries">
+       <range left="1721901498.522599" top="7.394958" bottom="-7.256142" right="1721901523.597737"/>
        <limitY/>
        <curve name="/quadrotor/imu/linear_acceleration/x" color="#1ac938"/>
       </plot>
      </DockArea>
      <DockArea name="...">
-      <plot mode="TimeSeries" flip_x="false" flip_y="false" style="Lines">
-       <range bottom="-6.368795" top="5.794383" left="183.805092" right="208.906619"/>
+      <plot flip_x="false" style="Lines" flip_y="false" mode="TimeSeries">
+       <range left="1721901498.522599" top="5.794383" bottom="-6.368795" right="1721901523.597737"/>
        <limitY/>
        <curve name="/quadrotor/imu/linear_acceleration/y" color="#ff7f0e">
         <transform name="Scale/Offset" alias="/quadrotor/imu/linear_acceleration/y[Scale/Offset]">
-         <options value_scale="-1" time_offset="0.0" value_offset="0.0"/>
+         <options time_offset="0.0" value_offset="0.0" value_scale="-1"/>
         </transform>
        </curve>
       </plot>
      </DockArea>
      <DockArea name="...">
-      <plot mode="TimeSeries" flip_x="false" flip_y="false" style="Lines">
-       <range bottom="-0.527861" top="25.864225" left="183.805092" right="208.906619"/>
+      <plot flip_x="false" style="Lines" flip_y="false" mode="TimeSeries">
+       <range left="1721901498.522599" top="25.864225" bottom="-0.527861" right="1721901523.597737"/>
        <limitY/>
        <curve name="/quadrotor/imu/linear_acceleration/z" color="#f14cc1">
         <transform name="Scale/Offset" alias="/quadrotor/imu/linear_acceleration/z[Scale/Offset]">
-         <options value_scale="-1" time_offset="0.0" value_offset="0.0"/>
+         <options time_offset="0.0" value_offset="0.0" value_scale="-1"/>
         </transform>
        </curve>
       </plot>
@@ -183,33 +183,33 @@
     </DockSplitter>
    </Container>
   </Tab>
-  <Tab tab_name="I_xyz" containers="1">
+  <Tab containers="1" tab_name="I_xyz">
    <Container>
     <DockSplitter orientation="-" sizes="0.250446;0.249554;0.250446;0.249554" count="4">
      <DockArea name="...">
-      <plot mode="TimeSeries" flip_x="false" flip_y="false" style="Lines">
-       <range bottom="-0.000099" top="0.033639" left="183.915456" right="208.906689"/>
+      <plot flip_x="false" style="Lines" flip_y="false" mode="TimeSeries">
+       <range left="1721901498.607108" top="0.001150" bottom="0.000513" right="1721901523.597807"/>
        <limitY/>
        <curve name="/quadrotor/geom_inertia_estimator/param_estimates/I/x" color="#9467bd"/>
       </plot>
      </DockArea>
      <DockArea name="...">
-      <plot mode="TimeSeries" flip_x="false" flip_y="false" style="Lines">
-       <range bottom="-0.000028" top="0.032458" left="183.915456" right="208.906689"/>
+      <plot flip_x="false" style="Lines" flip_y="false" mode="TimeSeries">
+       <range left="1721901498.607108" top="0.001160" bottom="0.000554" right="1721901523.597807"/>
        <limitY/>
        <curve name="/quadrotor/geom_inertia_estimator/param_estimates/I/y" color="#17becf"/>
       </plot>
      </DockArea>
      <DockArea name="...">
-      <plot mode="TimeSeries" flip_x="false" flip_y="false" style="Lines">
-       <range bottom="-0.077830" top="0.002765" left="183.915456" right="208.906689"/>
+      <plot flip_x="false" style="Lines" flip_y="false" mode="TimeSeries">
+       <range left="1721901498.607108" top="0.001111" bottom="0.000627" right="1721901523.597807"/>
        <limitY/>
        <curve name="/quadrotor/geom_inertia_estimator/param_estimates/I/z" color="#bcbd22"/>
       </plot>
      </DockArea>
      <DockArea name="...">
-      <plot mode="TimeSeries" flip_x="false" flip_y="false" style="Lines">
-       <range bottom="0.166484" top="0.503936" left="183.915456" right="208.906689"/>
+      <plot flip_x="false" style="Lines" flip_y="false" mode="TimeSeries">
+       <range left="1721901498.607108" top="0.501803" bottom="0.229276" right="1721901523.597807"/>
        <limitY/>
        <curve name="/quadrotor/geom_inertia_estimator/param_estimates/m" color="#1f77b4"/>
       </plot>
@@ -217,12 +217,12 @@
     </DockSplitter>
    </Container>
   </Tab>
-  <Tab tab_name="r" containers="1">
+  <Tab containers="1" tab_name="r">
    <Container>
     <DockSplitter orientation="-" sizes="0.333037;0.333927;0.333037" count="3">
      <DockArea name="...">
-      <plot mode="TimeSeries" flip_x="false" flip_y="false" style="Lines">
-       <range bottom="-0.027342" top="0.049589" left="183.915456" right="208.906689"/>
+      <plot flip_x="false" style="Lines" flip_y="false" mode="TimeSeries">
+       <range left="1721901498.607108" top="0.057570" bottom="-0.013682" right="1721901523.597807"/>
        <limitY/>
        <curve name="/quadrotor/geom_inertia_estimator/param_estimates/r_BI/x" color="#d62728"/>
        <curve name="/quadrotor/geom_inertia_estimator/param_estimates/r_BI/y" color="#1ac938"/>
@@ -230,8 +230,8 @@
       </plot>
      </DockArea>
      <DockArea name="...">
-      <plot mode="TimeSeries" flip_x="false" flip_y="false" style="Lines">
-       <range bottom="-0.108936" top="0.134074" left="183.915456" right="208.906689"/>
+      <plot flip_x="false" style="Lines" flip_y="false" mode="TimeSeries">
+       <range left="1721901498.607108" top="0.029869" bottom="-0.016605" right="1721901523.597807"/>
        <limitY/>
        <curve name="/quadrotor/geom_inertia_estimator/param_estimates/r_BM/x" color="#f14cc1"/>
        <curve name="/quadrotor/geom_inertia_estimator/param_estimates/r_BM/y" color="#9467bd"/>
@@ -239,8 +239,8 @@
       </plot>
      </DockArea>
      <DockArea name="...">
-      <plot mode="TimeSeries" flip_x="false" flip_y="false" style="Lines">
-       <range bottom="-0.320988" top="0.226845" left="183.915456" right="208.906689"/>
+      <plot flip_x="false" style="Lines" flip_y="false" mode="TimeSeries">
+       <range left="1721901498.607108" top="0.044734" bottom="-0.067316" right="1721901523.597807"/>
        <limitY/>
        <curve name="/quadrotor/geom_inertia_estimator/param_estimates/r_BP/x" color="#bcbd22"/>
        <curve name="/quadrotor/geom_inertia_estimator/param_estimates/r_BP/y" color="#1f77b4"/>
@@ -250,33 +250,33 @@
     </DockSplitter>
    </Container>
   </Tab>
-  <Tab tab_name="rpm" containers="1">
+  <Tab containers="1" tab_name="rpm">
    <Container>
     <DockSplitter orientation="-" sizes="0.250446;0.249554;0.250446;0.249554" count="4">
      <DockArea name="...">
-      <plot mode="TimeSeries" flip_x="false" flip_y="false" style="Lines">
-       <range bottom="5325.200000" top="16866.800000" left="183.764610" right="208.905467"/>
+      <plot flip_x="false" style="Lines" flip_y="false" mode="TimeSeries">
+       <range left="1721901498.519466" top="16866.800000" bottom="5325.200000" right="1721901523.596662"/>
        <limitY/>
        <curve name="/quadrotor/rpm/rpm[0]" color="#d62728"/>
       </plot>
      </DockArea>
      <DockArea name="...">
-      <plot mode="TimeSeries" flip_x="false" flip_y="false" style="Lines">
-       <range bottom="5070.000000" top="16746.000000" left="183.764610" right="208.905467"/>
+      <plot flip_x="false" style="Lines" flip_y="false" mode="TimeSeries">
+       <range left="1721901498.519466" top="16746.000000" bottom="5070.000000" right="1721901523.596662"/>
        <limitY/>
        <curve name="/quadrotor/rpm/rpm[1]" color="#1ac938"/>
       </plot>
      </DockArea>
      <DockArea name="...">
-      <plot mode="TimeSeries" flip_x="false" flip_y="false" style="Lines">
-       <range bottom="7285.100000" top="16814.900000" left="183.764610" right="208.905467"/>
+      <plot flip_x="false" style="Lines" flip_y="false" mode="TimeSeries">
+       <range left="1721901498.519466" top="16814.900000" bottom="7285.100000" right="1721901523.596662"/>
        <limitY/>
        <curve name="/quadrotor/rpm/rpm[2]" color="#ff7f0e"/>
       </plot>
      </DockArea>
      <DockArea name="...">
-      <plot mode="TimeSeries" flip_x="false" flip_y="false" style="Lines">
-       <range bottom="4939.400000" top="16892.600000" left="183.764610" right="208.905467"/>
+      <plot flip_x="false" style="Lines" flip_y="false" mode="TimeSeries">
+       <range left="1721901498.519466" top="16892.600000" bottom="4939.400000" right="1721901523.596662"/>
        <limitY/>
        <curve name="/quadrotor/rpm/rpm[3]" color="#f14cc1"/>
       </plot>
@@ -284,14 +284,14 @@
     </DockSplitter>
    </Container>
   </Tab>
-  <currentTabIndex index="7"/>
+  <currentTabIndex index="4"/>
  </tabbed_widget>
  <use_relative_time_offset enabled="1"/>
  <!-- - - - - - - - - - - - - - - -->
  <!-- - - - - - - - - - - - - - - -->
  <Plugins>
   <plugin ID="DataLoad CSV">
-   <parameters delimiter="0" time_axis=""/>
+   <parameters time_axis="" delimiter="0"/>
   </plugin>
   <plugin ID="DataLoad MCAP"/>
   <plugin ID="DataLoad ROS bags">
@@ -309,7 +309,7 @@
    <max_array_size value="100"/>
    <boolean_strings_to_number value="true"/>
    <remove_suffix_from_strings value="true"/>
-   <selected_topics value="/quadrotor/geom_inertia_estimator/param_estimates;/quadrotor/pose;/quadrotor/imu;/quadrotor/rpm"/>
+   <selected_topics value="/quadrotor/geom_inertia_estimator/param_estimates;/quadrotor/imu;/quadrotor/pose;/quadrotor/rpm"/>
   </plugin>
   <plugin ID="UDP Server"/>
   <plugin ID="WebSocket Server"/>
@@ -325,22 +325,11 @@
   <plugin ID="ROS Topic Re-Publisher"/>
  </Plugins>
  <!-- - - - - - - - - - - - - - - -->
- <previouslyLoaded_Datafiles>
-  <fileInfo filename="result.bag" prefix="">
-   <plugin ID="DataLoad ROS bags">
-    <use_header_stamp value="false"/>
-    <discard_large_arrays value="true"/>
-    <max_array_size value="100"/>
-    <boolean_strings_to_number value="true"/>
-    <remove_suffix_from_strings value="true"/>
-    <selected_topics value="/quadrotor/geom_inertia_estimator/param_estimates;/quadrotor/imu;/quadrotor/pose;/quadrotor/rpm"/>
-   </plugin>
-  </fileInfo>
- </previouslyLoaded_Datafiles>
+ <previouslyLoaded_Datafiles/>
  <previouslyLoaded_Streamer name="ROS Topic Subscriber"/>
  <!-- - - - - - - - - - - - - - - -->
  <customMathEquations>
-  <snippet name="e_yaw">
+  <snippet name="YAW">
    <global></global>
    <function>w = v4
 x = v1
@@ -353,68 +342,6 @@ dcm00 = w*w + x*x - y*y - z*z
 yaw = math.atan(dcm10, dcm00)
 
 return yaw</function>
-   <linked_source>/quadrotor/geom_inertia_estimator/param_estimates/header/stamp</linked_source>
-   <additional_sources>
-    <v1>/quadrotor/geom_inertia_estimator/param_estimates/q/x</v1>
-    <v2>/quadrotor/geom_inertia_estimator/param_estimates/q/y</v2>
-    <v3>/quadrotor/geom_inertia_estimator/param_estimates/q/z</v3>
-    <v4>/quadrotor/geom_inertia_estimator/param_estimates/q/w</v4>
-   </additional_sources>
-  </snippet>
-  <snippet name="e_pitch">
-   <global></global>
-   <function>w = v4
-x = v1
-y = v2
-z = v3
-
-dcm20 = 2 * (x * z - w * y)
-
-pitch = math.asin(-dcm20)
-
-return pitch</function>
-   <linked_source>/quadrotor/geom_inertia_estimator/param_estimates/header/stamp</linked_source>
-   <additional_sources>
-    <v1>/quadrotor/geom_inertia_estimator/param_estimates/q/x</v1>
-    <v2>/quadrotor/geom_inertia_estimator/param_estimates/q/y</v2>
-    <v3>/quadrotor/geom_inertia_estimator/param_estimates/q/z</v3>
-    <v4>/quadrotor/geom_inertia_estimator/param_estimates/q/w</v4>
-   </additional_sources>
-  </snippet>
-  <snippet name="e_roll">
-   <global></global>
-   <function>w = v4
-x = v1
-y = v2
-z = v3
-
-dcm21 = 2 * (w * x + y * z)
-dcm22 = w*w - x*x - y*y + z*z
-
-roll = math.atan(dcm21, dcm22)
-
-return roll</function>
-   <linked_source>/quadrotor/geom_inertia_estimator/param_estimates/header/stamp</linked_source>
-   <additional_sources>
-    <v1>/quadrotor/geom_inertia_estimator/param_estimates/q/x</v1>
-    <v2>/quadrotor/geom_inertia_estimator/param_estimates/q/y</v2>
-    <v3>/quadrotor/geom_inertia_estimator/param_estimates/q/z</v3>
-    <v4>/quadrotor/geom_inertia_estimator/param_estimates/q/w</v4>
-   </additional_sources>
-  </snippet>
-  <snippet name="ROLL">
-   <global></global>
-   <function>w = v4
-x = v1
-y = v2
-z = v3
-
-dcm21 = 2 * (w * x + y * z)
-dcm22 = w*w - x*x - y*y + z*z
-
-roll = math.atan(dcm21, dcm22)
-
-return roll</function>
    <linked_source>/quadrotor/pose/header/stamp</linked_source>
    <additional_sources>
     <v1>/quadrotor/pose/pose/pose/orientation/x</v1>
@@ -443,7 +370,69 @@ return pitch</function>
     <v4>/quadrotor/pose/pose/pose/orientation/w</v4>
    </additional_sources>
   </snippet>
-  <snippet name="YAW">
+  <snippet name="ROLL">
+   <global></global>
+   <function>w = v4
+x = v1
+y = v2
+z = v3
+
+dcm21 = 2 * (w * x + y * z)
+dcm22 = w*w - x*x - y*y + z*z
+
+roll = math.atan(dcm21, dcm22)
+
+return roll</function>
+   <linked_source>/quadrotor/pose/header/stamp</linked_source>
+   <additional_sources>
+    <v1>/quadrotor/pose/pose/pose/orientation/x</v1>
+    <v2>/quadrotor/pose/pose/pose/orientation/y</v2>
+    <v3>/quadrotor/pose/pose/pose/orientation/z</v3>
+    <v4>/quadrotor/pose/pose/pose/orientation/w</v4>
+   </additional_sources>
+  </snippet>
+  <snippet name="e_roll">
+   <global></global>
+   <function>w = v4
+x = v1
+y = v2
+z = v3
+
+dcm21 = 2 * (w * x + y * z)
+dcm22 = w*w - x*x - y*y + z*z
+
+roll = math.atan(dcm21, dcm22)
+
+return roll</function>
+   <linked_source>/quadrotor/geom_inertia_estimator/param_estimates/header/stamp</linked_source>
+   <additional_sources>
+    <v1>/quadrotor/geom_inertia_estimator/param_estimates/q/x</v1>
+    <v2>/quadrotor/geom_inertia_estimator/param_estimates/q/y</v2>
+    <v3>/quadrotor/geom_inertia_estimator/param_estimates/q/z</v3>
+    <v4>/quadrotor/geom_inertia_estimator/param_estimates/q/w</v4>
+   </additional_sources>
+  </snippet>
+  <snippet name="e_pitch">
+   <global></global>
+   <function>w = v4
+x = v1
+y = v2
+z = v3
+
+dcm20 = 2 * (x * z - w * y)
+
+pitch = math.asin(-dcm20)
+
+return pitch</function>
+   <linked_source>/quadrotor/geom_inertia_estimator/param_estimates/header/stamp</linked_source>
+   <additional_sources>
+    <v1>/quadrotor/geom_inertia_estimator/param_estimates/q/x</v1>
+    <v2>/quadrotor/geom_inertia_estimator/param_estimates/q/y</v2>
+    <v3>/quadrotor/geom_inertia_estimator/param_estimates/q/z</v3>
+    <v4>/quadrotor/geom_inertia_estimator/param_estimates/q/w</v4>
+   </additional_sources>
+  </snippet>
+  <snippet name="e_yaw">
    <global></global>
    <function>w = v4
 x = v1
@@ -456,12 +445,12 @@ dcm00 = w*w + x*x - y*y - z*z
 yaw = math.atan(dcm10, dcm00)
 
 return yaw</function>
-   <linked_source>/quadrotor/pose/header/stamp</linked_source>
+   <linked_source>/quadrotor/geom_inertia_estimator/param_estimates/header/stamp</linked_source>
    <additional_sources>
-    <v1>/quadrotor/pose/pose/pose/orientation/x</v1>
-    <v2>/quadrotor/pose/pose/pose/orientation/y</v2>
-    <v3>/quadrotor/pose/pose/pose/orientation/z</v3>
-    <v4>/quadrotor/pose/pose/pose/orientation/w</v4>
+    <v1>/quadrotor/geom_inertia_estimator/param_estimates/q/x</v1>
+    <v2>/quadrotor/geom_inertia_estimator/param_estimates/q/y</v2>
+    <v3>/quadrotor/geom_inertia_estimator/param_estimates/q/z</v3>
+    <v4>/quadrotor/geom_inertia_estimator/param_estimates/q/w</v4>
    </additional_sources>
   </snippet>
  </customMathEquations>
