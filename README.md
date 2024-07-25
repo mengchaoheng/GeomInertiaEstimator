@@ -9,7 +9,15 @@ We facilitate the setup process and demonstrate the performance of the estimator
   
 <!--video -->
 
-## Reference
+# Change log:
+2024-7-26 
+-------------------
+* Add member variables: c, l, w.
+  
+* Add px4 support.
+-------------------
+
+# Reference
 Please cite the following publication in case you are using the package in an academic context:
 
 Wüest V, Kumar V, Loianno G. "**Online Estimation of Geometric and Inertia Parameters for Multirotor Aerial Vehicles**." _2019 IEEE International Conference on Robotics and Automation (ICRA)_. IEEE, 2019.
