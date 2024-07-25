@@ -1,0 +1,19 @@
+<launch>
+    <arg name="use_EKF" default="0"/>
+    <arg name="model" default="quadrotor"/>
+
+    <group ns="$(arg model)">
+        <node pkg="geom_inertia_estimator"
+            type="geom_inertia_estimator"
+            name="geom_inertia_estimator"
+            output="screen">
+            <rosparam file="$(find geom_inertia_estimator)/config/px4_iris_params.yaml"/>
+            <param name="useEKF" value="$(arg use_EKF)"/>
+            <remap from="~pose" to="pose"/>
+            <remap from="~imu"  to="imu"/>
+            <remap from="~rpm"  to="rpm"/>
+        </node>
+        <node pkg="rosbag" type="record" name="bag_record" args="-a -O $(find geom_inertia_estimator)/config/result.bag"/> 
+
+    </group>
+</launch>

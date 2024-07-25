@@ -164,6 +164,10 @@ struct Consts
   mat3 zero3;
   mat3 eye3;
   Eigen::Matrix<flt,NUM_STATES_TANGENT,NUM_STATES_TANGENT> eye_NST;
+  // for calc_XX
+  flt c;
+  flt w;
+  flt l;
 };
 
 

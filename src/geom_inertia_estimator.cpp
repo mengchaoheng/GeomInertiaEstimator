@@ -143,6 +143,12 @@ void InertiaEstimator::onInit(const ros::NodeHandle &nh)
       // TODO save individual kf/km for each rotor
       consts_.k_f = k_f;
       consts_.k_M = k_M;
+      consts_.c=std::abs(k_M/k_f); // all rotor have the same value
+      consts_.l=std::abs(t[0]);
+      consts_.w=std::abs(t[1]);
+      std::cout << "consts_.c: " << consts_.c << std::endl;
+      std::cout << "consts_.l: " << consts_.l << std::endl;
+      std::cout << "consts_.w: " << consts_.w << std::endl;
       P_f.col(num_rotors) = consts_.k_f*R*consts_.e_z;
       P_M.col(num_rotors) = consts_.k_M*R*consts_.e_z + t.cross(consts_.k_f*R*consts_.e_z);
     }
@@ -215,7 +221,7 @@ void InertiaEstimator::predictEKF(StateWithCov &state, Input &input)
           std::sqrt(input.rpm_sq(0)),std::sqrt(input.rpm_sq(1)),std::sqrt(input.rpm_sq(2)),std::sqrt(input.rpm_sq(3)),
           dt,
           0,
-          0.08f, 0.071f, 0.0095f, 4.179e-9f, F_temp_);
+          consts_.w, consts_.l, consts_.c, consts_.k_f, F_temp_);
 
     // use with doubles
     Eigen::Matrix<flt,NUM_STATES_TANGENT,NUM_STATES_TANGENT> F(Eigen::Matrix<double,NUM_STATES_TANGENT,NUM_STATES_TANGENT>(F_temp_).cast<flt>());
@@ -296,7 +302,7 @@ void InertiaEstimator::measUpdatePoseEKF(StateWithCov &state, MeasPose &meas)
         0,0,0,0,
         0,
         0,
-        0.08f, 0.071f, 0.0095f, 4.179e-9f, H_temp);
+        consts_.w, consts_.l, consts_.c, consts_.k_f, H_temp);
 
   // use with floats
   Eigen::Matrix<flt,3,NUM_STATES_TANGENT> H_EKF(Eigen::Matrix<double,3,NUM_STATES_TANGENT>(H_temp).cast<flt>());
@@ -405,7 +411,7 @@ void InertiaEstimator::measUpdateImuEKF(StateWithCov &state, Input &input, MeasI
         std::sqrt(input.rpm_sq(0)),std::sqrt(input.rpm_sq(1)),std::sqrt(input.rpm_sq(2)),std::sqrt(input.rpm_sq(3)),
         dt,
         0,
-        0.08f, 0.071f, 0.0095f, 4.179e-9f, H_temp);
+        consts_.w, consts_.l, consts_.c, consts_.k_f, H_temp);
 
   // use with floats
   Eigen::Matrix<flt,3,NUM_STATES_TANGENT> H_EKF(Eigen::Matrix<double,3,NUM_STATES_TANGENT>(H_temp).cast<flt>());
@@ -518,7 +524,7 @@ Eigen::Matrix<flt,3,1> InertiaEstimator::measurementModelAcceleration(State &X, 
   // measurement model acceleration
   vec3 Omega_dot = X.I.inverse()*(M-X.Omega.cross(X.I*X.Omega));
   vec3 a_meas = 1.0/X.m*F
-                - Omega_dot.cross(r_MI)
+                + Omega_dot.cross(r_MI)
                 + X.Omega.cross(X.Omega.cross(r_MI))
                 + X.b_a;
   return a_meas;
