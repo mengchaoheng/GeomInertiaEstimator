@@ -191,7 +191,7 @@ After build all the code follow above, delet the origin version of **mavros** an
 ```
 cd ~/mavros_ws/src
 git clone https://github.com/mengchaoheng/mavros.git
-git checkout GeomInertiaEstimator
+git checkout inertiaestimator
 ```
 and build it by 
 ```
@@ -207,6 +207,7 @@ clone this repositories to another path `~/catkin_ws/src` which build by `catkin
 ```
 cd  ~/catkin_ws/src
 git clone https://github.com/mengchaoheng/GeomInertiaEstimator.git
+git checkout inertiaestimator
 ```
 and build it by 
 ```
