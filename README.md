@@ -168,6 +168,14 @@ This [section](https://docs.px4.io/main/en/ros/mavros_installation.html) explain
 Then MAVROS shoulde be installed from source. If you can takeoff the quadrotor of gazebo simulation, and the mavros have been run to publish `/mavros/xxx` topic, some step have to be follow to using this estimator with px4.
 We have placed the details of the changes in the `README_of_xx.md` file. We have already uploaded the modified file to GitHub, and we will proceed with the deployment using these files.
 
+Folder structure:
+```sh
+~/PX4-Autopilot
+~/mavros_ws/src/mavlink
+~/mavros_ws/src/mavros
+~/catkin_ws/src/GeomInertiaEstimator # can also be placed in mavros_ws. For easier management, it is recommended to use another ROS workspace separately.
+```
+
 1. Clone PX4 and checkout to branch `inertiaestimator`.
 ```sh
 git clone https://github.com/mengchaoheng/PX4-Autopilot.git
