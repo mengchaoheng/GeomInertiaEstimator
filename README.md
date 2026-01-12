@@ -176,11 +176,23 @@ git checkout inertiaestimator
 
 git submodule update --init --recursive  
 ```
+If submodule update have error, run:
+```sh
+make distclean
+
+git checkout v1.14.0-deta2
+git submodule update --init --recursive
+
+make distclean
+
+git checkout inertiaestimator
+git submodule update --init --recursive  
+```
 
 The detail of what is change in the code can be found in `README_of_PX4.md`.
 
 
-2. Clone mavros
+1. Clone mavros
 
 NOTE: we clone mavlink and mavros pkg in to path `~/mavros_ws/src`.
 
