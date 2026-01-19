@@ -18,6 +18,8 @@
     <depend>nav_msgs</depend>
     <depend>sensor_msgs</depend>
     <depend>roscpp</depend>
+    <depend>mavros_msgs</depend>
+
 
     <export>
     </export>
