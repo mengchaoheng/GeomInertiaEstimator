@@ -242,8 +242,7 @@ clone this repositories to another path `~/catkin_ws/src` which build by `catkin
 ```sh
 cd  ~/catkin_ws/src
 git clone https://github.com/mengchaoheng/GeomInertiaEstimator.git
-# checkout to px4 branch 
-git checkout px4
+# Our worl is on px4 branch (default)
 ```
 and build it by 
 ```sh
