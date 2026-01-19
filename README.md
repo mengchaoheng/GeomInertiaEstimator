@@ -156,7 +156,7 @@ This article has been tested against:
 
 Ubuntu: 20.04
 ROS: Noetic
-PX4 Firmware: v1.14.0-beta2 (other version maybe don't send orientation_variance to mavlink stream).
+PX4 Firmware: From v1.14.0-beta2 to v1.17.x (other version maybe don't send orientation_variance to mavlink stream).
 mavros: v1.15.0 (build from soure)
 mavlink: release/noetic/mavlink/2022.12.30-1 (All we need is adapt to px4 and mavros, we don't change this, so don't care about this version.)
 
@@ -173,7 +173,7 @@ clone the repositories to ~/PX4-Autopilot:
 ```sh
 git clone https://github.com/PX4/PX4-Autopilot.git
 cd ~/PX4-Autopilot
-git checkout v1.14.0-deta2 #(recommend)
+git checkout v1.14.0-deta2 #(We have tested on PX4 versions v1.14.0-deta2 to v1.17.x)
 git submodule update --init --recursive
 ```
 and build it by 
@@ -182,47 +182,7 @@ make px4_sitl gazbeo
 # or
 make px4_sitl gazebo-classic
 ```
-
-The detail of what is change in the code of px4 is:
-
-1.1 change the rate of mavlink stream in `src/modules/mavlink/mavlink_main.cpp` under `case MAVLINK_MODE_ONBOARD:`:
-```cpp
-configure_stream_local("HIGHRES_IMU", unlimited_rate); //need for rostopic /quadrotor/imu
-configure_stream_local("ODOMETRY", unlimited_rate); // need for rostopic /quadrotor/ose
-configure_stream_local("SERVO_OUTPUT_RAW_0", unlimited_rate); //need for rostopic /quadrotor/rpm
-configure_stream_local("ATTITUDE", unlimited_rate); //(option)
-```
-1.2 set the value of Off-diagonal elements of pose_covariance and velocity_covariance to 0 instead of NAN in `src/modules/mavlink/streams/ODOMETRY.hpp`:
-```cpp
-// pose_covariance
-for (auto &pc : msg.pose_covariance) {
-  pc = 0;
-}
-// ....
-// velocity_covariance
-for (auto &vc : msg.velocity_covariance) {
-  vc = 0;
-}
-```
-1.3 setup params of the sdf file of iris in `Tools/simulation/gazebo-classic/sitl_gazebo-classic/models/iris/iris.sdf.jinja`. Since the model of this project use constant value to calculate F/H, So we have to set the rotor parameters so that it has a rectangular distribution. 
-```xml
-<link name='rotor_0'>
-      <pose>0.13 -0.22 0.023 0 0 0</pose> 
-</link>
-<link name='rotor_1'>
-      <pose>-0.13 0.22 0.023 0 0 0</pose>
-</link>
-<link name='rotor_2'>
-      <pose>0.13 0.22 0.023 0 0 0</pose>
-</link>
-<link name='rotor_3'>
-      <pose>-0.13 -0.22 0.023 0 0 0</pose>
-</link>
-
-```
- (option): set `rotorDragCoefficient` and `rollingMomentCoefficient` to 0 for debug the algorithm.
-
-1.4 Rebuild the code.
+the detail of what is change in the code of px4 in [README_px4](README_px4.md). The modified code can also be obtained from [mengchaoheng](https://github.com/mengchaoheng/PX4-Autopilot/tree/inertiaestimator).
 
 2. mavros
 
@@ -249,6 +209,9 @@ and build it by
 cd  ~/catkin_ws
 catkin_make
 ```
+
+the detail of what is change in the code of px4 in [README_esti](README_esti.md).
+
 
 ## PX4 example usage
 1. Run px4 sitl:
