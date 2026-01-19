@@ -200,7 +200,7 @@ git submodule update --init --recursive
 The detail of what is change in the code can be found in `README_of_PX4.md`.
 
 
-1. Clone mavros
+2. Clone mavros
 
 NOTE: we clone mavlink and mavros pkg in to path `~/mavros_ws/src`.
 
@@ -211,7 +211,7 @@ After build all the code follow above, delet the origin version of **mavros** an
 ```
 cd ~/mavros_ws/src
 git clone https://github.com/mengchaoheng/mavros.git
-git checkout inertiaestimator
+git checkout d9f0b92c2149a62e55c3bb0ed2e591db3a2cec93
 ```
 and build it by 
 ```
@@ -221,7 +221,7 @@ catkin build
 
 The detail of what is change in the code can be found in `README_of_mavros.md`.
 
-1. Clone GeomInertiaEstimator
+3. Clone GeomInertiaEstimator
 
 clone this repositories to another path `~/catkin_ws/src` which build by `catkin_make`.
 ```
